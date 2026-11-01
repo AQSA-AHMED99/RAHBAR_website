@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAHBAR - AI-Powered Rehabilitation & Augmented Healthcare</title>
+  <meta name="description" content="RAHBAR is an AI and Augmented Reality (AR) based rehabilitation platform developed at Riphah International University for stroke survivors and physiotherapists."[cite: 24]>
+  <meta name="keywords" content="AI rehabilitation, AR healthcare, physiotherapy software, stroke survivor recovery, Riphah International University final year project"[cite: 24]>
+  <meta name="author" content="Aqsa Ahmed, Nayab Goher, Areeba Nadeem"[cite: 24]>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rahbar: {
+              navy: '#0b2545',
+              teal: '#00a896',
+              cyan: '#028090',
+              light: '#f0f8ff',
+              accent: '#05668d',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased relative selection:bg-rahbar-teal selection:text-white">
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center space-x-3 cursor-pointer group" onclick="scrollToTop()">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rahbar-navy via-rahbar-cyan to-rahbar-teal flex items-center justify-center text-white font-extrabold text-lg shadow-md group-hover:scale-105 transition-transform">
+          R
+        </div>
+        <div>
+          <span class="text-xl font-extrabold text-rahbar-navy tracking-tight">RAHBAR</span>
+          <span class="block text-[9px] text-rahbar-teal font-bold uppercase tracking-widest -mt-1">Healthcare AR</span>
+        </div>
+      </div>
+
+      <nav id="navbar-links" class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-600">
+        <a href="#about" class="nav-item py-2 transition hover:text-rahbar-teal border-b-2 border-transparent">About</a>
+        <a href="#features" class="nav-item py-2 transition hover:text-rahbar-teal border-b-2 border-transparent">Features</a>
+        <a href="#architecture" class="nav-item py-2 transition hover:text-rahbar-teal border-b-2 border-transparent">Modules</a>
+        <a href="#workflow" class="nav-item py-2 transition hover:text-rahbar-teal border-b-2 border-transparent">How It Works</a>
+        <a href="#services" class="nav-item py-2 transition hover:text-rahbar-teal border-b-2 border-transparent">Services</a>
+        <a href="#pricing" class="nav-item py-2 transition hover:text-rahbar-teal border-b-2 border-transparent">Pricing</a>
+        <a href="#team" class="nav-item py-2 transition hover:text-rahbar-teal border-b-2 border-transparent">Developers</a>
+        <a href="#faq" class="nav-item py-2 transition hover:text-rahbar-teal border-b-2 border-transparent">FAQs</a>
+        <a href="#contact" class="nav-item py-2 transition hover:text-rahbar-teal border-b-2 border-transparent">Contact Us</a>
+      </nav>
+
+      <div class="hidden lg:flex items-center space-x-4">
+        <a href="#demo-section" class="px-5 py-2.5 rounded-xl bg-rahbar-teal text-white font-bold hover:bg-rahbar-cyan transition shadow-md text-sm">
+          Book Demo
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-600 hover:text-rahbar-navy focus:outline-none">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 pt-3 pb-6 space-y-2 shadow-xl">
+      <a href="#about" class="block text-slate-700 font-medium py-1.5 text-sm hover:text-rahbar-teal">About</a>
+      <a href="#features" class="block text-slate-700 font-medium py-1.5 text-sm hover:text-rahbar-teal">Features</a>
+      <a href="#architecture" class="block text-slate-700 font-medium py-1.5 text-sm hover:text-rahbar-teal">Modules</a>
+      <a href="#workflow" class="block text-slate-700 font-medium py-1.5 text-sm hover:text-rahbar-teal">How It Works</a>
+      <a href="#services" class="block text-slate-700 font-medium py-1.5 text-sm hover:text-rahbar-teal">Services</a>
+      <a href="#pricing" class="block text-slate-700 font-medium py-1.5 text-sm hover:text-rahbar-teal">Pricing</a>
+      <a href="#team" class="block text-slate-700 font-medium py-1.5 text-sm hover:text-rahbar-teal">Developers</a>
+      <a href="#faq" class="block text-slate-700 font-medium py-1.5 text-sm hover:text-rahbar-teal">FAQs</a>
+      <a href="#contact" class="block text-slate-700 font-medium py-1.5 text-sm hover:text-rahbar-teal">Contact Us</a>
+      <a href="#demo-section" class="block w-full text-center px-4 py-3 rounded-xl bg-rahbar-teal text-white font-bold text-sm shadow-md mt-2">Book System Demo</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="about" class="scroll-mt-24 relative bg-gradient-to-b from-rahbar-light/60 via-white to-slate-50 py-16 lg:py-24 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-6 space-y-5 text-center lg:text-left">
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-teal-50 border border-teal-200 text-rahbar-teal text-xs font-bold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-rahbar-teal animate-pulse"></span>
+            <span>AI & AR Rehabilitation Platform</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-rahbar-navy leading-tight tracking-tight">
+            Guiding Every Movement Towards <span class="text-transparent bg-clip-text bg-gradient-to-r from-rahbar-teal to-rahbar-cyan">Recovery</span>
+          </h1>
+
+          <p class="text-sm sm:text-base text-slate-600 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            RAHBAR empowers stroke survivors and physiotherapists with high-precision camera pose tracking, intelligent joint angle analytics, and real-time Augmented Reality exercise guidance[cite: 24, 28].
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#demo-section" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-rahbar-teal text-white font-bold hover:bg-rahbar-cyan transition shadow-md text-sm text-center flex items-center justify-center space-x-2">
+              <span>Book System Demo</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#features" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white border border-slate-200 text-rahbar-navy font-semibold hover:bg-slate-50 transition text-sm shadow-sm text-center">
+              Explore Technology
+            </a>
+          </div>
+
+          <div class="pt-6 grid grid-cols-3 gap-4 border-t border-slate-200/80 max-w-md mx-auto lg:mx-0">
+            <div>
+              <p class="text-lg font-bold text-rahbar-navy">Real-Time</p>
+              <p class="text-xs text-slate-500">AR Pose Tracking</p>
+            </div>
+            <div>
+              <p class="text-lg font-bold text-rahbar-navy">Dual Mode</p>
+              <p class="text-xs text-slate-500">Seated & Standing</p>
+            </div>
+            <div>
+              <p class="text-lg font-bold text-rahbar-navy">Smart</p>
+              <p class="text-xs text-slate-500">Clinical Analytics</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 relative">
+          <div class="relative rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl overflow-hidden group">
+            <div class="bg-slate-800 px-4 py-3 flex items-center justify-between border-b border-slate-700">
+              <div class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                <span class="text-xs text-slate-300 font-mono ml-2">RAHBAR Live Session Feed</span>
+              </div>
+              <span class="px-2.5 py-0.5 rounded text-[10px] bg-teal-500/20 text-teal-300 font-bold border border-teal-500/30 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-ping"></span> LIVE AR
+              </span>
+            </div>
+            
+            <div class="p-6 bg-slate-950 text-white min-h-[320px] flex flex-col justify-between relative">
+              <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:2rem_2rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30"></div>
+
+              <div class="grid grid-cols-3 gap-3 relative z-10">
+                <div class="bg-slate-900/90 backdrop-blur p-3 rounded-xl border border-slate-800 shadow-lg">
+                  <p class="text-[10px] text-slate-400 uppercase tracking-wider">Shoulder Angle</p>
+                  <p class="text-lg font-extrabold text-teal-400 mt-0.5">85° <span class="text-[10px] font-normal text-emerald-400">Normal</span></p>
+                </div>
+                <div class="bg-slate-900/90 backdrop-blur p-3 rounded-xl border border-slate-800 shadow-lg">
+                  <p class="text-[10px] text-slate-400 uppercase tracking-wider">Elbow Flexion</p>
+                  <p class="text-lg font-extrabold text-cyan-400 mt-0.5">92° <span class="text-[10px] font-normal text-teal-400">Target</span></p>
+                </div>
+                <div class="bg-slate-900/90 backdrop-blur p-3 rounded-xl border border-slate-800 shadow-lg">
+                  <p class="text-[10px] text-slate-400 uppercase tracking-wider">Knee ROM</p>
+                  <p class="text-lg font-extrabold text-emerald-400 mt-0.5">176° <span class="text-[10px] font-normal text-emerald-400">Stable</span></p>
+                </div>
+              </div>
+
+              <div class="my-6 text-center relative z-10">
+                <div class="inline-flex p-5 rounded-full bg-teal-500/10 border border-teal-400/30 shadow-inner group-hover:scale-110 transition-transform">
+                  <i data-lucide="activity" class="w-10 h-10 text-rahbar-teal animate-pulse"></i>
+                </div>
+                <p class="text-xs text-teal-300 font-mono mt-3 tracking-wide">MediaPipe Landmark Tracking Active</p>
+              </div>
+
+              <div class="flex items-center justify-between text-xs text-slate-300 border-t border-slate-800 pt-3 font-mono relative z-10">
+                <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i> Seated/Standing Mode</span>
+                <span class="text-emerald-400 font-bold bg-emerald-500/10 px-2 py-1 rounded border border-emerald-500/20">Repetition: 12 / 15</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION WITH HIGH-TECH UI MOCKUPS -->
+  <section id="features" class="scroll-mt-24 py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
+        <span class="text-rahbar-teal font-bold text-xs uppercase tracking-wider bg-teal-50 px-3 py-1 rounded-full border border-teal-100">System Capabilities</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-rahbar-navy tracking-tight">Engineered for Rehabilitation Excellence</h2>
+        <p class="text-slate-600 text-sm">Comprehensive technical features built for clinical precision and patient recovery[cite: 24, 28].</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature 1: Pose Tracking -->
+        <div class="rounded-2xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
+          <div class="h-48 bg-slate-950 relative p-4 flex flex-col justify-between overflow-hidden border-b border-slate-800">
+            <div class="absolute inset-0 bg-[radial-gradient(#00a896_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="text-[10px] font-mono text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded border border-teal-500/20">POSE ENGINE</span>
+              <i data-lucide="video" class="w-4 h-4 text-teal-400"></i>
+            </div>
+            <div class="relative z-10 bg-slate-900/90 border border-slate-800 p-3 rounded-xl backdrop-blur">
+              <div class="flex items-center justify-between text-xs text-slate-300 font-mono mb-1">
+                <span>Joint Detection</span>
+                <span class="text-emerald-400 font-bold">99.4% Acc</span>
+              </div>
+              <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-400 to-cyan-400 h-full w-[95%]"></div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-rahbar-navy mb-2 group-hover:text-rahbar-teal transition-colors">Real-Time Pose Tracking</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">Tracks body landmarks using standard webcams without requiring expensive or intrusive wearable hardware[cite: 28].</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 2: ROM Analysis -->
+        <div class="rounded-2xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
+          <div class="h-48 bg-slate-950 relative p-4 flex flex-col justify-between overflow-hidden border-b border-slate-800">
+            <div class="absolute inset-0 bg-[radial-gradient(#028090_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="text-[10px] font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">ANALYTICS</span>
+              <i data-lucide="ruler" class="w-4 h-4 text-cyan-400"></i>
+            </div>
+            <div class="relative z-10 bg-slate-900/90 border border-slate-800 p-3 rounded-xl backdrop-blur flex items-center justify-between">
+              <div>
+                <p class="text-[10px] text-slate-400 uppercase font-mono">Flexion Angle</p>
+                <p class="text-base font-bold text-cyan-300">114.5° <span class="text-xs text-emerald-400 font-normal">Optimal</span></p>
+              </div>
+              <div class="w-10 h-10 rounded-full bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 font-mono text-xs">
+                ROM
+              </div>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-rahbar-navy mb-2 group-hover:text-rahbar-teal transition-colors">Joint Angle & ROM Analysis</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">Dynamically calculates joint angles and Range of Motion (ROM) in real time during therapy exercises[cite: 28].</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 3: Seated & Standing -->
+        <div class="rounded-2xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
+          <div class="h-48 bg-slate-950 relative p-4 flex flex-col justify-between overflow-hidden border-b border-slate-800">
+            <div class="absolute inset-0 bg-[radial-gradient(#00a896_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">POSTURE MODES</span>
+              <i data-lucide="accessibility" class="w-4 h-4 text-emerald-400"></i>
+            </div>
+            <div class="relative z-10 grid grid-cols-2 gap-2">
+              <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800 text-center">
+                <p class="text-[9px] text-slate-400 font-mono">STANDING</p>
+                <p class="text-xs font-bold text-emerald-400">Active</p>
+              </div>
+              <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800 text-center">
+                <p class="text-[9px] text-slate-400 font-mono">SEATED</p>
+                <p class="text-xs font-bold text-teal-400">Supported</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-rahbar-navy mb-2 group-hover:text-rahbar-teal transition-colors">Seated & Standing Exercises</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">Supports standard standing poses as well as therapist-approved seated exercises for patients with limited balance[cite: 28].</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 4: AI/ML Movement Assessment -->
+        <div class="rounded-2xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
+          <div class="h-48 bg-slate-950 relative p-4 flex flex-col justify-between overflow-hidden border-b border-slate-800">
+            <div class="absolute inset-0 bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="text-[10px] font-mono text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded border border-indigo-500/20">AI MODEL</span>
+              <i data-lucide="cpu" class="w-4 h-4 text-indigo-400"></i>
+            </div>
+            <div class="relative z-10 bg-slate-900/90 border border-slate-800 p-3 rounded-xl backdrop-blur flex items-center justify-between">
+              <div>
+                <p class="text-[10px] text-slate-400 uppercase font-mono">Random Forest</p>
+                <p class="text-xs font-bold text-indigo-300 mt-0.5">Classification: Correct</p>
+              </div>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-rahbar-navy mb-2 group-hover:text-rahbar-teal transition-colors">AI/ML Movement Assessment</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">Utilizes a machine learning classification model to evaluate correct, incorrect, and compensatory movements[cite: 29].</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 5: AR Guidance & Voice Feedback -->
+        <div class="rounded-2xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
+          <div class="h-48 bg-slate-950 relative p-4 flex flex-col justify-between overflow-hidden border-b border-slate-800">
+            <div class="absolute inset-0 bg-[radial-gradient(#00a896_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="text-[10px] font-mono text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded border border-teal-500/20">AR OVERLAY</span>
+              <i data-lucide="volume-2" class="w-4 h-4 text-teal-400"></i>
+            </div>
+            <div class="relative z-10 bg-slate-900/90 border border-slate-800 p-3 rounded-xl backdrop-blur flex items-center space-x-3">
+              <div class="w-8 h-8 rounded-lg bg-teal-500/20 flex items-center justify-center text-teal-400">
+                <i data-lucide="mic" class="w-4 h-4 animate-pulse"></i>
+              </div>
+              <div>
+                <p class="text-[10px] text-slate-400 font-mono">Audio Cue Active</p>
+                <p class="text-xs font-bold text-white">"Keep your elbow steady"</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-rahbar-navy mb-2 group-hover:text-rahbar-teal transition-colors">AR Guidance & Voice Feedback</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">Provides visual AR skeleton overlays, target markers, real-time corrections, and supportive voice instructions[cite: 28].</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 6: Structured Data & Privacy -->
+        <div class="rounded-2xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
+          <div class="h-48 bg-slate-950 relative p-4 flex flex-col justify-between overflow-hidden border-b border-slate-800">
+            <div class="absolute inset-0 bg-[radial-gradient(#028090_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="text-[10px] font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">STORAGE & PRIVACY</span>
+              <i data-lucide="database" class="w-4 h-4 text-cyan-400"></i>
+            </div>
+            <div class="relative z-10 bg-slate-900/90 border border-slate-800 p-3 rounded-xl backdrop-blur flex items-center justify-between">
+              <div>
+                <p class="text-[10px] text-slate-400 uppercase font-mono">SQLite Metrics</p>
+                <p class="text-xs font-bold text-cyan-300 mt-0.5">No Heavy Video Files</p>
+              </div>
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-rahbar-navy mb-2 group-hover:text-rahbar-teal transition-colors">Structured Data & Privacy</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">Stores lightweight numerical metrics securely instead of heavy video files, protecting patient privacy and optimizing storage[cite: 29].</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE & MODULES SECTION WITH PROFESSIONAL MOCKUPS -->
+  <section id="architecture" class="scroll-mt-24 py-20 bg-slate-100/70 border-t border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
+        <span class="text-rahbar-teal font-bold text-xs uppercase tracking-wider bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Project Modules</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-rahbar-navy tracking-tight">Comprehensive System Architecture</h2>
+        <p class="text-slate-600 text-sm">Built strictly in accordance with Riphah International University Senior Design Project specifications[cite: 24, 25].</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Module 1 -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-xl transition flex flex-col group">
+          <div class="h-36 bg-slate-950 p-4 flex flex-col justify-between relative border-b border-slate-800">
+            <span class="text-[9px] font-mono text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded w-max border border-teal-500/20">MODULE 1</span>
+            <div class="bg-slate-900 p-2.5 rounded-xl border border-slate-800 flex items-center space-x-2">
+              <i data-lucide="user-check" class="w-4 h-4 text-teal-400"></i>
+              <span class="text-xs text-slate-200 font-mono">Patient Registration ID</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-rahbar-navy text-base mb-2 group-hover:text-rahbar-teal transition-colors">Patient Administration</h3>
+              <p class="text-slate-600 text-xs leading-relaxed">Receptionist-led patient registration, unique IDs, and appointment scheduling before clinical sessions[cite: 29].</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-xl transition flex flex-col group">
+          <div class="h-36 bg-slate-950 p-4 flex flex-col justify-between relative border-b border-slate-800">
+            <span class="text-[9px] font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded w-max border border-cyan-500/20">MODULE 2</span>
+            <div class="bg-slate-900 p-2.5 rounded-xl border border-slate-800 flex items-center space-x-2">
+              <i data-lucide="stethoscope" class="w-4 h-4 text-cyan-400"></i>
+              <span class="text-xs text-slate-200 font-mono">Clinician Control Panel</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-rahbar-navy text-base mb-2 group-hover:text-rahbar-teal transition-colors">Therapist Dashboard</h3>
+              <p class="text-slate-600 text-xs leading-relaxed">Complete control over patient assessment, customized exercise assignment, and multi-dimensional progress tracking[cite: 18, 28, 29].</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 3 & 4 -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-xl transition flex flex-col group">
+          <div class="h-36 bg-slate-950 p-4 flex flex-col justify-between relative border-b border-slate-800">
+            <span class="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded w-max border border-emerald-500/20">MODULE 3 & 4</span>
+            <div class="bg-slate-900 p-2.5 rounded-xl border border-slate-800 flex items-center space-x-2">
+              <i data-lucide="activity" class="w-4 h-4 text-emerald-400"></i>
+              <span class="text-xs text-slate-200 font-mono">Standing & Seated Poses</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-rahbar-navy text-base mb-2 group-hover:text-rahbar-teal transition-colors">Dual Mode Support</h3>
+              <p class="text-slate-600 text-xs leading-relaxed">Full support for both standing exercises and therapist-approved seated upper-body rehabilitation poses[cite: 29].</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 6 -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-xl transition flex flex-col group">
+          <div class="h-36 bg-slate-950 p-4 flex flex-col justify-between relative border-b border-slate-800">
+            <span class="text-[9px] font-mono text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded w-max border border-indigo-500/20">MODULE 6</span>
+            <div class="bg-slate-900 p-2.5 rounded-xl border border-slate-800 flex items-center space-x-2">
+              <i data-lucide="file-text" class="w-4 h-4 text-indigo-400"></i>
+              <span class="text-xs text-slate-200 font-mono">PDF Progress Export</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-rahbar-navy text-base mb-2 group-hover:text-rahbar-teal transition-colors">Exportable Reports</h3>
+              <p class="text-slate-600 text-xs leading-relaxed">Generates comprehensive PDF rehabilitation reports for clinician review and institutional record keeping[cite: 18, 28].</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS SECTION -->
+  <section id="workflow" class="scroll-mt-24 py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
+        <span class="text-rahbar-teal font-bold text-xs uppercase tracking-wider bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Clinical Workflow</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-rahbar-navy tracking-tight">Integrated Rehabilitation Process</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+          <span class="w-8 h-8 rounded-xl bg-rahbar-navy text-white text-sm font-bold flex items-center justify-center mb-4 shadow">1</span>
+          <h4 class="font-bold text-rahbar-navy text-base mb-2">Receptionist Admin</h4>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Registers patient records and appointments before clinical session[cite: 28].</p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+          <span class="w-8 h-8 rounded-xl bg-rahbar-teal text-white text-sm font-bold flex items-center justify-center mb-4 shadow">2</span>
+          <h4 class="font-bold text-rahbar-navy text-base mb-2">Therapist Control</h4>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Evaluates patient condition and assigns tailored standing or seated exercises[cite: 28].</p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+          <span class="w-8 h-8 rounded-xl bg-rahbar-cyan text-white text-sm font-bold flex items-center justify-center mb-4 shadow">3</span>
+          <h4 class="font-bold text-rahbar-navy text-base mb-2">AR Exercise Session</h4>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Patient completes exercises with live visual overlays and audio cues[cite: 28].</p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+          <span class="w-8 h-8 rounded-xl bg-emerald-600 text-white text-sm font-bold flex items-center justify-center mb-4 shadow">4</span>
+          <h4 class="font-bold text-rahbar-navy text-base mb-2">Progress Analytics</h4>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Structured joint measurements stored for therapist review[cite: 28].</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="scroll-mt-24 py-20 bg-slate-100/70 border-t border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
+        <span class="text-rahbar-teal font-bold text-xs uppercase tracking-wider bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Tailored Solutions</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-rahbar-navy tracking-tight">RAHBAR System Services</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white hover:shadow-xl transition">
+          <div class="w-12 h-12 rounded-xl bg-teal-100 text-rahbar-teal flex items-center justify-center mb-5">
+            <i data-lucide="building-2" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-rahbar-navy mb-3">For Rehabilitation Centers</h3>
+          <ul class="space-y-2.5 text-sm text-slate-600">
+            <li class="flex items-center space-x-2.5"><i data-lucide="check-circle" class="w-4 h-4 text-rahbar-teal flex-shrink-0"></i><span>Receptionist Patient Registration</span></li>
+            <li class="flex items-center space-x-2.5"><i data-lucide="check-circle" class="w-4 h-4 text-rahbar-teal flex-shrink-0"></i><span>Appointment Scheduling</span></li>
+          </ul>
+        </div>
+
+        <div class="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white hover:shadow-xl transition">
+          <div class="w-12 h-12 rounded-xl bg-cyan-100 text-rahbar-cyan flex items-center justify-center mb-5">
+            <i data-lucide="stethoscope" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-rahbar-navy mb-3">For Physiotherapists</h3>
+          <ul class="space-y-2.5 text-sm text-slate-600">
+            <li class="flex items-center space-x-2.5"><i data-lucide="check-circle" class="w-4 h-4 text-rahbar-cyan flex-shrink-0"></i><span>Clinician-Approved Exercise Pool</span></li>
+            <li class="flex items-center space-x-2.5"><i data-lucide="check-circle" class="w-4 h-4 text-rahbar-cyan flex-shrink-0"></i><span>Session Comparison Dashboard</span></li>
+          </ul>
+        </div>
+
+        <div class="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white hover:shadow-xl transition">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-5">
+            <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-rahbar-navy mb-3">For Patients</h3>
+          <ul class="space-y-2.5 text-sm text-slate-600">
+            <li class="flex items-center space-x-2.5"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i><span>Seated & Standing Exercise Guidance</span></li>
+            <li class="flex items-center space-x-2.5"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i><span>Real-time Visual Feedback</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section id="pricing" class="scroll-mt-24 py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
+        <span class="text-rahbar-teal font-bold text-xs uppercase tracking-wider bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Deployment Plans</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-rahbar-navy tracking-tight">Flexible Options for Facilities</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-slate-50 shadow-sm flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold text-rahbar-navy">Starter Plan</h3>
+            <p class="text-2xl font-extrabold text-rahbar-navy my-4">Pricing on Request</p>
+            <ul class="space-y-3 text-sm text-slate-600 mb-8">
+              <li class="flex items-center space-x-2.5"><i data-lucide="check" class="w-4 h-4 text-rahbar-teal flex-shrink-0"></i><span>Single Therapist Account</span></li>
+              <li class="flex items-center space-x-2.5"><i data-lucide="check" class="w-4 h-4 text-rahbar-teal flex-shrink-0"></i><span>Standard Pose Tracking</span></li>
+              <li class="flex items-center space-x-2.5"><i data-lucide="check" class="w-4 h-4 text-rahbar-teal flex-shrink-0"></i><span>Basic ROM Analytics</span></li>
+            </ul>
+          </div>
+          <a href="#demo-section" class="block w-full py-3 rounded-xl border border-rahbar-teal text-rahbar-teal font-bold text-center text-sm hover:bg-rahbar-teal hover:text-white transition">Request Quote</a>
+        </div>
+
+        <div class="p-6 sm:p-8 rounded-2xl border-2 border-rahbar-teal bg-teal-50/30 shadow-md relative flex flex-col justify-between transform md:-translate-y-2">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-1 bg-rahbar-teal text-white text-xs font-bold rounded-full uppercase tracking-wider shadow">Most Popular</span>
+          <div>
+            <h3 class="text-lg font-bold text-rahbar-navy">Clinic Plan</h3>
+            <p class="text-2xl font-extrabold text-rahbar-navy my-4">Pricing on Request</p>
+            <ul class="space-y-3 text-sm text-slate-600 mb-8">
+              <li class="flex items-center space-x-2.5"><i data-lucide="check" class="w-4 h-4 text-rahbar-teal flex-shrink-0"></i><span>Multi-Therapist Access</span></li>
+              <li class="flex items-center space-x-2.5"><i data-lucide="check" class="w-4 h-4 text-rahbar-teal flex-shrink-0"></i><span>Receptionist Portal</span></li>
+              <li class="flex items-center space-x-2.5"><i data-lucide="check" class="w-4 h-4 text-rahbar-teal flex-shrink-0"></i><span>Advanced Progress Reports</span></li>
+            </ul>
+          </div>
+          <a href="#demo-section" class="block w-full py-3 rounded-xl bg-rahbar-teal text-white font-bold text-center text-sm hover:bg-rahbar-cyan transition shadow-lg">Book Demo</a>
+        </div>
+
+        <div class="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-slate-50 shadow-sm flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold text-rahbar-navy">Enterprise Plan</h3>
+            <p class="text-2xl font-extrabold text-rahbar-navy my-4">Custom Licensing</p>
+            <ul class="space-y-3 text-sm text-slate-600 mb-8">
+              <li class="flex items-center space-x-2.5"><i data-lucide="check" class="w-4 h-4 text-rahbar-teal flex-shrink-0"></i><span>Unlimited Staff Accounts</span></li>
+              <li class="flex items-center space-x-2.5"><i data-lucide="check" class="w-4 h-4 text-rahbar-teal flex-shrink-0"></i><span>Custom Exercise Criteria</span></li>
+              <li class="flex items-center space-x-2.5"><i data-lucide="check" class="w-4 h-4 text-rahbar-teal flex-shrink-0"></i><span>Dedicated Support</span></li>
+            </ul>
+          </div>
+          <a href="#demo-section" class="block w-full py-3 rounded-xl border border-slate-300 text-slate-700 font-bold text-center text-sm hover:bg-slate-100 transition">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYSTEM DEVELOPERS SECTION -->
+  <section id="team" class="scroll-mt-24 py-20 bg-slate-50/70 border-t border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
+        <span class="text-rahbar-teal font-bold text-xs uppercase tracking-wider bg-teal-50 px-3 py-1 rounded-full border border-teal-100">System Developers</span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-rahbar-navy tracking-tight">Meet the RAHBAR Engineering Team</h2>
+        <p class="text-slate-600 text-sm">Senior Design Project Software Engineers at Riphah International University[cite: 25].</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+        <!-- Developer 1 -->
+        <div class="p-6 sm:p-8 bg-white rounded-2xl border border-slate-200 text-center shadow-sm">
+          <div class="w-28 h-28 rounded-full bg-gradient-to-tr from-rahbar-navy to-rahbar-teal p-1.5 mx-auto mb-5 shadow-lg">
+            <img src="assets/images/aqsa.jpg" alt="Aqsa Ahmed - Software Engineer at RAHBAR" class="w-full h-full rounded-full object-cover bg-white" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Aqsa+Ahmed&background=00a896&color=fff';">
+          </div>
+          <h3 class="text-xl font-bold text-rahbar-navy">Aqsa Ahmed</h3>
+          <p class="text-xs text-rahbar-teal font-bold mt-1 uppercase tracking-wider">Software Engineer</p>
+          <p class="text-xs text-slate-500 mt-1">CMS # 53106</p>
+          <p class="text-xs text-slate-500 mt-3 flex items-center justify-center space-x-1.5">
+            <i data-lucide="mail" class="w-4 h-4 text-rahbar-teal"></i>
+            <span>53106@students.riphah.edu.pk</span>
+          </p>
+        </div>
+
+        <!-- Developer 2 -->
+        <div class="p-6 sm:p-8 bg-white rounded-2xl border border-slate-200 text-center shadow-sm">
+          <div class="w-28 h-28 rounded-full bg-gradient-to-tr from-rahbar-navy to-rahbar-teal p-1.5 mx-auto mb-5 shadow-lg">
+            <img src="assets/images/nayab.jpeg" alt="Nayab Goher - Software Engineer at RAHBAR" class="w-full h-full rounded-full object-cover bg-white" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Nayab+Goher&background=00a896&color=fff';">
+          </div>
+          <h3 class="text-xl font-bold text-rahbar-navy">Nayab Goher</h3>
+          <p class="text-xs text-rahbar-teal font-bold mt-1 uppercase tracking-wider">Software Engineer</p>
+          <p class="text-xs text-slate-500 mt-1">CMS # 52922</p>
+          <p class="text-xs text-slate-500 mt-3 flex items-center justify-center space-x-1.5">
+            <i data-lucide="mail" class="w-4 h-4 text-rahbar-teal"></i>
+            <span>52922@students.riphah.edu.pk</span>
+          </p>
+        </div>
+
+        <!-- Developer 3 -->
+        <div class="p-6 sm:p-8 bg-white rounded-2xl border border-slate-200 text-center shadow-sm">
+          <div class="w-28 h-28 rounded-full bg-gradient-to-tr from-rahbar-navy to-rahbar-teal p-1.5 mx-auto mb-5 shadow-lg">
+            <img src="assets/images/areeba.jpeg" alt="Areeba Nadeem - Software Engineer at RAHBAR" class="w-full h-full rounded-full object-cover bg-white" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Areeba+Nadeem&background=00a896&color=fff';">
+          </div>
+          <h3 class="text-xl font-bold text-rahbar-navy">Areeba Nadeem</h3>
+          <p class="text-xs text-rahbar-teal font-bold mt-1 uppercase tracking-wider">Software Engineer</p>
+          <p class="text-xs text-slate-500 mt-1">CMS # 57027</p>
+          <p class="text-xs text-slate-500 mt-3 flex items-center justify-center space-x-1.5">
+            <i data-lucide="mail" class="w-4 h-4 text-rahbar-teal"></i>
+            <span>57027@students.riphah.edu.pk</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="max-w-md mx-auto bg-white p-5 rounded-2xl border border-teal-200 text-center shadow-sm">
+        <span class="text-[10px] uppercase tracking-widest font-bold text-rahbar-teal">Project Supervisor</span>
+        <h4 class="text-lg font-bold text-rahbar-navy mt-1">Dr. Hajra Murtaza</h4>
+        <p class="text-xs text-slate-500">Assistant Professor, Faculty of Computing, Riphah International University[cite: 24, 25]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK SYSTEM DEMO FORM SECTION -->
+  <section id="demo-section" class="scroll-mt-24 py-20 bg-white border-t border-slate-200">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center space-y-2 mb-10">
+        <span class="text-rahbar-teal font-bold text-xs uppercase tracking-wider">Interactive Session</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-rahbar-navy">Book a System Demo</h2>
+        <p class="text-slate-600 text-sm">Schedule a real-time live demonstration of the RAHBAR AI/AR system.</p>
+      </div>
+
+      <div class="bg-slate-50 p-8 sm:p-10 rounded-2xl shadow-md border border-slate-200">
+        <form id="contact-form" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Full Name</label>
+              <input type="text" id="form-name" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rahbar-teal text-sm bg-white" placeholder="Dr. Ali Raza">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Email Address</label>
+              <input type="email" id="form-email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rahbar-teal text-sm bg-white" placeholder="ali.raza@hospital.com">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Phone Number</label>
+              <input type="tel" id="form-phone" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rahbar-teal text-sm bg-white" placeholder="+92 300 1234567">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Organization / Hospital</label>
+              <input type="text" id="form-org" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rahbar-teal text-sm bg-white" placeholder="Riphah Rehab Center">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Message / Demo Notes</label>
+            <textarea id="form-msg" rows="4" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rahbar-teal text-sm bg-white" placeholder="Tell us about your requirements..."></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-3.5 rounded-xl bg-rahbar-teal text-white font-bold hover:bg-rahbar-cyan transition shadow text-sm">
+            Submit Demo Request
+          </button>
+        </form>
+
+        <div id="form-success" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm text-center font-semibold">
+          Thank you! Your request has been submitted successfully. The RAHBAR team will review your inquiry and get back to you shortly.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="scroll-mt-24 py-20 bg-slate-100/70 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center space-y-2 mb-12">
+        <span class="text-rahbar-teal font-bold text-xs uppercase tracking-wider">Got Questions?</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-rahbar-navy">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="space-y-3">
+        <div class="faq-item border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full p-5 text-left font-bold text-rahbar-navy text-sm sm:text-base flex justify-between items-center bg-white hover:bg-slate-50 transition">
+            <span>What is RAHBAR AR Rehabilitation Technology?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-rahbar-teal transition-transform"></i>
+          </button>
+          <div class="faq-content hidden p-5 text-sm text-slate-600 bg-white border-t border-slate-100">
+            RAHBAR uses camera-based pose estimation to track joint movements in real time and project visual Augmented Reality (AR) guidance to assist stroke survivors while performing exercises[cite: 28].
+          </div>
+        </div>
+
+        <div class="faq-item border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full p-5 text-left font-bold text-rahbar-navy text-sm sm:text-base flex justify-between items-center bg-white hover:bg-slate-50 transition">
+            <span>Can patients who cannot stand perform rehabilitation exercises?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-rahbar-teal transition-transform"></i>
+          </button>
+          <div class="faq-content hidden p-5 text-sm text-slate-600 bg-white border-t border-slate-100">
+            Yes! RAHBAR explicitly supports clinician-approved seated rehabilitation exercises so that patients with limited standing ability or balance issues can safely participate[cite: 28].
+          </div>
+        </div>
+
+        <div class="faq-item border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full p-5 text-left font-bold text-rahbar-navy text-sm sm:text-base flex justify-between items-center bg-white hover:bg-slate-50 transition">
+            <span>How does RAHBAR analyze joint angles and range of motion (ROM)?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-rahbar-teal transition-transform"></i>
+          </button>
+          <div class="faq-content hidden p-5 text-sm text-slate-600 bg-white border-t border-slate-100">
+            The system uses computer vision landmarks to dynamically calculate real-time joint angles (such as elbow, shoulder, and knee flexibility) and compares them against therapist-configured targets[cite: 28].
+          </div>
+        </div>
+
+        <div class="faq-item border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full p-5 text-left font-bold text-rahbar-navy text-sm sm:text-base flex justify-between items-center bg-white hover:bg-slate-50 transition">
+            <span>Does the system continuously store heavy patient video files?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-rahbar-teal transition-transform"></i>
+          </button>
+          <div class="faq-content hidden p-5 text-sm text-slate-600 bg-white border-t border-slate-100">
+            No. To protect patient privacy and optimize server storage, RAHBAR stores structured numerical session analytics (joint measurements, repetition counts, and progress scores) instead of raw video recordings[cite: 29].
+          </div>
+        </div>
+
+        <div class="faq-item border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full p-5 text-left font-bold text-rahbar-navy text-sm sm:text-base flex justify-between items-center bg-white hover:bg-slate-50 transition">
+            <span>How do physiotherapists monitor patient progress?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-rahbar-teal transition-transform"></i>
+          </button>
+          <div class="faq-content hidden p-5 text-sm text-slate-600 bg-white border-t border-slate-100">
+            Physiotherapists have access to a dedicated dashboard where they can review past session comparisons, track recovery milestones, and assign customized exercise plans for each patient[cite: 18, 28].
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT US SECTION -->
+  <section id="contact" class="scroll-mt-24 py-20 bg-rahbar-navy text-white relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl mx-auto text-center space-y-4">
+        <span class="text-rahbar-teal font-bold text-xs uppercase tracking-wider">Get In Touch</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold">Contact Information</h2>
+        <p class="text-slate-300 text-sm">
+          Reach out to us via phone, email, or connect with our official social media handles below.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 text-slate-800 text-left">
+          <div class="p-6 bg-white rounded-2xl shadow-md">
+            <i data-lucide="phone" class="w-6 h-6 text-rahbar-teal mb-2"></i>
+            <h4 class="font-bold text-rahbar-navy text-sm mb-0.5">Phone Number</h4>
+            <p class="text-xs text-slate-600">+92 316 3626765</p>
+            <p class="text-[10px] text-slate-400 mt-0.5">Mon - Fri, 9am - 5pm</p>
+          </div>
+
+          <div class="p-6 bg-white rounded-2xl shadow-md">
+            <i data-lucide="mail" class="w-6 h-6 text-rahbar-teal mb-2"></i>
+            <h4 class="font-bold text-rahbar-navy text-sm mb-0.5">Support Email</h4>
+            <p class="text-xs text-slate-600">filintamalik9057@gmail.com</p>
+            <p class="text-[10px] text-slate-400 mt-0.5">General Inquiries</p>
+          </div>
+
+          <div class="p-6 bg-white rounded-2xl shadow-md">
+            <i data-lucide="map-pin" class="w-6 h-6 text-rahbar-teal mb-2"></i>
+            <h4 class="font-bold text-rahbar-navy text-sm mb-0.5">Office Location</h4>
+            <p class="text-xs text-slate-600">Gulberg Greens, Riphah Campus</p>
+            <p class="text-[10px] text-slate-400 mt-0.5">Islamabad, Pakistan</p>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-slate-700">
+          <h4 class="text-xs font-bold text-rahbar-teal uppercase tracking-wider mb-4 text-center">Connect With Our Channels</h4>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto">
+            <a href="https://facebook.com" target="_blank" class="flex items-center space-x-3 p-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-rahbar-teal transition group">
+              <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center p-1.5 flex-shrink-0">
+                <img src="assets/images/fb-icon.png" alt="Facebook official logo icon" class="w-full h-full object-contain">
+              </div>
+              <div class="text-left">
+                <p class="text-[9px] text-slate-400 font-semibold uppercase">Facebook</p>
+                <p class="text-xs font-bold text-white group-hover:text-rahbar-teal transition">RAHBAR-Official</p>
+              </div>
+            </a>
+
+            <a href="https://instagram.com" target="_blank" class="flex items-center space-x-3 p-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-rahbar-teal transition group">
+              <div class="w-8 h-8 rounded-lg bg-pink-500/10 flex items-center justify-center p-1.5 flex-shrink-0">
+                <img src="assets/images/insta-icon.png" alt="Instagram official logo icon" class="w-full h-full object-contain">
+              </div>
+              <div class="text-left">
+                <p class="text-[9px] text-slate-400 font-semibold uppercase">Instagram</p>
+                <p class="text-xs font-bold text-white group-hover:text-rahbar-teal transition">@rahbar_rehab</p>
+              </div>
+            </a>
+
+            <a href="https://linkedin.com" target="_blank" class="flex items-center space-x-3 p-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-rahbar-teal transition group">
+              <div class="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center p-1.5 flex-shrink-0">
+                <img src="assets/images/linkedin-icon.png" alt="LinkedIn official logo icon" class="w-full h-full object-contain">
+              </div>
+              <div class="text-left">
+                <p class="text-[9px] text-slate-400 font-semibold uppercase">LinkedIn</p>
+                <p class="text-xs font-bold text-white group-hover:text-rahbar-teal transition">RAHBAR Healthcare</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 text-xs py-10 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center space-y-3">
+      <div class="flex items-center justify-center space-x-2">
+        <div class="w-7 h-7 rounded-lg bg-rahbar-teal text-white font-bold flex items-center justify-center text-xs">R</div>
+        <span class="text-base font-bold text-white tracking-tight">RAHBAR</span>
+      </div>
+      <p class="text-slate-500 max-w-md mx-auto">
+        Rehabilitation and Augmented Healthcare for Balance, Activity and Recovery — Senior Design Project at Riphah International University[cite: 25].
+      </p>
+      <p class="text-slate-600">
+        &copy; 2026 RAHBAR Team. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
