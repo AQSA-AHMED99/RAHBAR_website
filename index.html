@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
   <meta name="google-site-verification" content="dlMSmjHl8p7r6S4Ci-u-tHUXVmQezp12WedfbL2QQdo" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RAHBAR - AI-Powered Rehabilitation & Augmented Healthcare</title>
-  <meta name="description" content="RAHBAR is an AI and Augmented Reality (AR) based rehabilitation platform developed at Riphah International University for stroke survivors and physiotherapists."[cite: 24]>
-  <meta name="keywords" content="AI rehabilitation, AR healthcare, physiotherapy software, stroke survivor recovery, Riphah International University final year project"[cite: 24]>
-  <meta name="author" content="Aqsa Ahmed, Nayab Goher, Areeba Nadeem"[cite: 24]>
+  <meta name="description" content="RAHBAR is an AI and Augmented Reality (AR) based rehabilitation platform developed at Riphah International University for stroke survivors and physiotherapists.">
+  <meta name="keywords" content="AI rehabilitation, AR healthcare, physiotherapy software, stroke survivor recovery, Riphah International University final year project">
+  <meta name="author" content="Aqsa Ahmed, Nayab Goher, Areeba Nadeem">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -111,7 +121,7 @@
           </h1>
 
           <p class="text-sm sm:text-base text-slate-600 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-            RAHBAR empowers stroke survivors and physiotherapists with high-precision camera pose tracking, intelligent joint angle analytics, and real-time Augmented Reality exercise guidance[cite: 24, 28].
+            RAHBAR empowers stroke survivors and physiotherapists with high-precision camera pose tracking, intelligent joint angle analytics, and real-time Augmented Reality exercise guidance.
           </p>
 
           <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
@@ -191,17 +201,17 @@
     </div>
   </section>
 
-  <!-- FEATURES SECTION WITH HIGH-TECH UI MOCKUPS -->
+  <!-- FEATURES SECTION -->
   <section id="features" class="scroll-mt-24 py-20 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
         <span class="text-rahbar-teal font-bold text-xs uppercase tracking-wider bg-teal-50 px-3 py-1 rounded-full border border-teal-100">System Capabilities</span>
         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-rahbar-navy tracking-tight">Engineered for Rehabilitation Excellence</h2>
-        <p class="text-slate-600 text-sm">Comprehensive technical features built for clinical precision and patient recovery[cite: 24, 28].</p>
+        <p class="text-slate-600 text-sm">Comprehensive technical features built for clinical precision and patient recovery.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Feature 1: Pose Tracking -->
+        <!-- Feature 1 -->
         <div class="rounded-2xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
           <div class="h-48 bg-slate-950 relative p-4 flex flex-col justify-between overflow-hidden border-b border-slate-800">
             <div class="absolute inset-0 bg-[radial-gradient(#00a896_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
@@ -222,12 +232,12 @@
           <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
               <h3 class="text-lg font-bold text-rahbar-navy mb-2 group-hover:text-rahbar-teal transition-colors">Real-Time Pose Tracking</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">Tracks body landmarks using standard webcams without requiring expensive or intrusive wearable hardware[cite: 28].</p>
+              <p class="text-slate-600 text-sm leading-relaxed">Tracks body landmarks using standard webcams without requiring expensive or intrusive wearable hardware.</p>
             </div>
           </div>
         </div>
 
-        <!-- Feature 2: ROM Analysis -->
+        <!-- Feature 2 -->
         <div class="rounded-2xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
           <div class="h-48 bg-slate-950 relative p-4 flex flex-col justify-between overflow-hidden border-b border-slate-800">
             <div class="absolute inset-0 bg-[radial-gradient(#028090_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
@@ -248,12 +258,12 @@
           <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
               <h3 class="text-lg font-bold text-rahbar-navy mb-2 group-hover:text-rahbar-teal transition-colors">Joint Angle & ROM Analysis</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">Dynamically calculates joint angles and Range of Motion (ROM) in real time during therapy exercises[cite: 28].</p>
+              <p class="text-slate-600 text-sm leading-relaxed">Dynamically calculates joint angles and Range of Motion (ROM) in real time during therapy exercises.</p>
             </div>
           </div>
         </div>
 
-        <!-- Feature 3: Seated & Standing -->
+        <!-- Feature 3 -->
         <div class="rounded-2xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
           <div class="h-48 bg-slate-950 relative p-4 flex flex-col justify-between overflow-hidden border-b border-slate-800">
             <div class="absolute inset-0 bg-[radial-gradient(#00a896_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
@@ -275,12 +285,12 @@
           <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
               <h3 class="text-lg font-bold text-rahbar-navy mb-2 group-hover:text-rahbar-teal transition-colors">Seated & Standing Exercises</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">Supports standard standing poses as well as therapist-approved seated exercises for patients with limited balance[cite: 28].</p>
+              <p class="text-slate-600 text-sm leading-relaxed">Supports standard standing poses as well as therapist-approved seated exercises for patients with limited balance.</p>
             </div>
           </div>
         </div>
 
-        <!-- Feature 4: AI/ML Movement Assessment -->
+        <!-- Feature 4 -->
         <div class="rounded-2xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
           <div class="h-48 bg-slate-950 relative p-4 flex flex-col justify-between overflow-hidden border-b border-slate-800">
             <div class="absolute inset-0 bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
@@ -299,12 +309,12 @@
           <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
               <h3 class="text-lg font-bold text-rahbar-navy mb-2 group-hover:text-rahbar-teal transition-colors">AI/ML Movement Assessment</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">Utilizes a machine learning classification model to evaluate correct, incorrect, and compensatory movements[cite: 29].</p>
+              <p class="text-slate-600 text-sm leading-relaxed">Utilizes a machine learning classification model to evaluate correct, incorrect, and compensatory movements.</p>
             </div>
           </div>
         </div>
 
-        <!-- Feature 5: AR Guidance & Voice Feedback -->
+        <!-- Feature 5 -->
         <div class="rounded-2xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
           <div class="h-48 bg-slate-950 relative p-4 flex flex-col justify-between overflow-hidden border-b border-slate-800">
             <div class="absolute inset-0 bg-[radial-gradient(#00a896_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
@@ -325,12 +335,12 @@
           <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
               <h3 class="text-lg font-bold text-rahbar-navy mb-2 group-hover:text-rahbar-teal transition-colors">AR Guidance & Voice Feedback</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">Provides visual AR skeleton overlays, target markers, real-time corrections, and supportive voice instructions[cite: 28].</p>
+              <p class="text-slate-600 text-sm leading-relaxed">Provides visual AR skeleton overlays, target markers, real-time corrections, and supportive voice instructions.</p>
             </div>
           </div>
         </div>
 
-        <!-- Feature 6: Structured Data & Privacy -->
+        <!-- Feature 6 -->
         <div class="rounded-2xl bg-white border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
           <div class="h-48 bg-slate-950 relative p-4 flex flex-col justify-between overflow-hidden border-b border-slate-800">
             <div class="absolute inset-0 bg-[radial-gradient(#028090_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
@@ -349,7 +359,7 @@
           <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
               <h3 class="text-lg font-bold text-rahbar-navy mb-2 group-hover:text-rahbar-teal transition-colors">Structured Data & Privacy</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">Stores lightweight numerical metrics securely instead of heavy video files, protecting patient privacy and optimizing storage[cite: 29].</p>
+              <p class="text-slate-600 text-sm leading-relaxed">Stores lightweight numerical metrics securely instead of heavy video files, protecting patient privacy and optimizing storage.</p>
             </div>
           </div>
         </div>
@@ -357,17 +367,16 @@
     </div>
   </section>
 
-  <!-- ARCHITECTURE & MODULES SECTION WITH PROFESSIONAL MOCKUPS -->
+  <!-- ARCHITECTURE & MODULES SECTION -->
   <section id="architecture" class="scroll-mt-24 py-20 bg-slate-100/70 border-t border-b border-slate-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
         <span class="text-rahbar-teal font-bold text-xs uppercase tracking-wider bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Project Modules</span>
         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-rahbar-navy tracking-tight">Comprehensive System Architecture</h2>
-        <p class="text-slate-600 text-sm">Built strictly in accordance with Riphah International University Senior Design Project specifications[cite: 24, 25].</p>
+        <p class="text-slate-600 text-sm">Built strictly in accordance with Riphah International University Senior Design Project specifications.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Module 1 -->
         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-xl transition flex flex-col group">
           <div class="h-36 bg-slate-950 p-4 flex flex-col justify-between relative border-b border-slate-800">
             <span class="text-[9px] font-mono text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded w-max border border-teal-500/20">MODULE 1</span>
@@ -379,12 +388,11 @@
           <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
               <h3 class="font-bold text-rahbar-navy text-base mb-2 group-hover:text-rahbar-teal transition-colors">Patient Administration</h3>
-              <p class="text-slate-600 text-xs leading-relaxed">Receptionist-led patient registration, unique IDs, and appointment scheduling before clinical sessions[cite: 29].</p>
+              <p class="text-slate-600 text-xs leading-relaxed">Receptionist-led patient registration, unique IDs, and appointment scheduling before clinical sessions.</p>
             </div>
           </div>
         </div>
 
-        <!-- Module 2 -->
         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-xl transition flex flex-col group">
           <div class="h-36 bg-slate-950 p-4 flex flex-col justify-between relative border-b border-slate-800">
             <span class="text-[9px] font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded w-max border border-cyan-500/20">MODULE 2</span>
@@ -396,12 +404,11 @@
           <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
               <h3 class="font-bold text-rahbar-navy text-base mb-2 group-hover:text-rahbar-teal transition-colors">Therapist Dashboard</h3>
-              <p class="text-slate-600 text-xs leading-relaxed">Complete control over patient assessment, customized exercise assignment, and multi-dimensional progress tracking[cite: 18, 28, 29].</p>
+              <p class="text-slate-600 text-xs leading-relaxed">Complete control over patient assessment, customized exercise assignment, and multi-dimensional progress tracking[cite: 18].</p>
             </div>
           </div>
         </div>
 
-        <!-- Module 3 & 4 -->
         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-xl transition flex flex-col group">
           <div class="h-36 bg-slate-950 p-4 flex flex-col justify-between relative border-b border-slate-800">
             <span class="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded w-max border border-emerald-500/20">MODULE 3 & 4</span>
@@ -413,12 +420,11 @@
           <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
               <h3 class="font-bold text-rahbar-navy text-base mb-2 group-hover:text-rahbar-teal transition-colors">Dual Mode Support</h3>
-              <p class="text-slate-600 text-xs leading-relaxed">Full support for both standing exercises and therapist-approved seated upper-body rehabilitation poses[cite: 29].</p>
+              <p class="text-slate-600 text-xs leading-relaxed">Full support for both standing exercises and therapist-approved seated upper-body rehabilitation poses.</p>
             </div>
           </div>
         </div>
 
-        <!-- Module 6 -->
         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-xl transition flex flex-col group">
           <div class="h-36 bg-slate-950 p-4 flex flex-col justify-between relative border-b border-slate-800">
             <span class="text-[9px] font-mono text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded w-max border border-indigo-500/20">MODULE 6</span>
@@ -430,7 +436,7 @@
           <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
               <h3 class="font-bold text-rahbar-navy text-base mb-2 group-hover:text-rahbar-teal transition-colors">Exportable Reports</h3>
-              <p class="text-slate-600 text-xs leading-relaxed">Generates comprehensive PDF rehabilitation reports for clinician review and institutional record keeping[cite: 18, 28].</p>
+              <p class="text-slate-600 text-xs leading-relaxed">Generates comprehensive PDF rehabilitation reports for clinician review and institutional record keeping[cite: 18].</p>
             </div>
           </div>
         </div>
@@ -450,22 +456,22 @@
         <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
           <span class="w-8 h-8 rounded-xl bg-rahbar-navy text-white text-sm font-bold flex items-center justify-center mb-4 shadow">1</span>
           <h4 class="font-bold text-rahbar-navy text-base mb-2">Receptionist Admin</h4>
-          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Registers patient records and appointments before clinical session[cite: 28].</p>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Registers patient records and appointments before clinical session.</p>
         </div>
         <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
           <span class="w-8 h-8 rounded-xl bg-rahbar-teal text-white text-sm font-bold flex items-center justify-center mb-4 shadow">2</span>
           <h4 class="font-bold text-rahbar-navy text-base mb-2">Therapist Control</h4>
-          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Evaluates patient condition and assigns tailored standing or seated exercises[cite: 28].</p>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Evaluates patient condition and assigns tailored standing or seated exercises.</p>
         </div>
         <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
           <span class="w-8 h-8 rounded-xl bg-rahbar-cyan text-white text-sm font-bold flex items-center justify-center mb-4 shadow">3</span>
           <h4 class="font-bold text-rahbar-navy text-base mb-2">AR Exercise Session</h4>
-          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Patient completes exercises with live visual overlays and audio cues[cite: 28].</p>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Patient completes exercises with live visual overlays and audio cues.</p>
         </div>
         <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
           <span class="w-8 h-8 rounded-xl bg-emerald-600 text-white text-sm font-bold flex items-center justify-center mb-4 shadow">4</span>
           <h4 class="font-bold text-rahbar-navy text-base mb-2">Progress Analytics</h4>
-          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Structured joint measurements stored for therapist review[cite: 28].</p>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Structured joint measurements stored for therapist review.</p>
         </div>
       </div>
     </div>
@@ -574,11 +580,10 @@
       <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
         <span class="text-rahbar-teal font-bold text-xs uppercase tracking-wider bg-teal-50 px-3 py-1 rounded-full border border-teal-100">System Developers</span>
         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-rahbar-navy tracking-tight">Meet the RAHBAR Engineering Team</h2>
-        <p class="text-slate-600 text-sm">Senior Design Project Software Engineers at Riphah International University[cite: 25].</p>
+        <p class="text-slate-600 text-sm">Senior Design Project Software Engineers at Riphah International University.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-        <!-- Developer 1 -->
         <div class="p-6 sm:p-8 bg-white rounded-2xl border border-slate-200 text-center shadow-sm">
           <div class="w-28 h-28 rounded-full bg-gradient-to-tr from-rahbar-navy to-rahbar-teal p-1.5 mx-auto mb-5 shadow-lg">
             <img src="assets/images/aqsa.jpg" alt="Aqsa Ahmed - Software Engineer at RAHBAR" class="w-full h-full rounded-full object-cover bg-white" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Aqsa+Ahmed&background=00a896&color=fff';">
@@ -592,7 +597,6 @@
           </p>
         </div>
 
-        <!-- Developer 2 -->
         <div class="p-6 sm:p-8 bg-white rounded-2xl border border-slate-200 text-center shadow-sm">
           <div class="w-28 h-28 rounded-full bg-gradient-to-tr from-rahbar-navy to-rahbar-teal p-1.5 mx-auto mb-5 shadow-lg">
             <img src="assets/images/nayab.jpeg" alt="Nayab Goher - Software Engineer at RAHBAR" class="w-full h-full rounded-full object-cover bg-white" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Nayab+Goher&background=00a896&color=fff';">
@@ -606,7 +610,6 @@
           </p>
         </div>
 
-        <!-- Developer 3 -->
         <div class="p-6 sm:p-8 bg-white rounded-2xl border border-slate-200 text-center shadow-sm">
           <div class="w-28 h-28 rounded-full bg-gradient-to-tr from-rahbar-navy to-rahbar-teal p-1.5 mx-auto mb-5 shadow-lg">
             <img src="assets/images/areeba.jpeg" alt="Areeba Nadeem - Software Engineer at RAHBAR" class="w-full h-full rounded-full object-cover bg-white" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Areeba+Nadeem&background=00a896&color=fff';">
@@ -624,7 +627,7 @@
       <div class="max-w-md mx-auto bg-white p-5 rounded-2xl border border-teal-200 text-center shadow-sm">
         <span class="text-[10px] uppercase tracking-widest font-bold text-rahbar-teal">Project Supervisor</span>
         <h4 class="text-lg font-bold text-rahbar-navy mt-1">Dr. Hajra Murtaza</h4>
-        <p class="text-xs text-slate-500">Assistant Professor, Faculty of Computing, Riphah International University[cite: 24, 25]</p>
+        <p class="text-xs text-slate-500">Assistant Professor, Faculty of Computing, Riphah International University</p>
       </div>
     </div>
   </section>
@@ -694,7 +697,7 @@
             <i data-lucide="chevron-down" class="w-5 h-5 text-rahbar-teal transition-transform"></i>
           </button>
           <div class="faq-content hidden p-5 text-sm text-slate-600 bg-white border-t border-slate-100">
-            RAHBAR uses camera-based pose estimation to track joint movements in real time and project visual Augmented Reality (AR) guidance to assist stroke survivors while performing exercises[cite: 28].
+            RAHBAR uses camera-based pose estimation to track joint movements in real time and project visual Augmented Reality (AR) guidance to assist stroke survivors while performing exercises.
           </div>
         </div>
 
@@ -704,7 +707,7 @@
             <i data-lucide="chevron-down" class="w-5 h-5 text-rahbar-teal transition-transform"></i>
           </button>
           <div class="faq-content hidden p-5 text-sm text-slate-600 bg-white border-t border-slate-100">
-            Yes! RAHBAR explicitly supports clinician-approved seated rehabilitation exercises so that patients with limited standing ability or balance issues can safely participate[cite: 28].
+            Yes! RAHBAR explicitly supports clinician-approved seated rehabilitation exercises so that patients with limited standing ability or balance issues can safely participate.
           </div>
         </div>
 
@@ -714,7 +717,7 @@
             <i data-lucide="chevron-down" class="w-5 h-5 text-rahbar-teal transition-transform"></i>
           </button>
           <div class="faq-content hidden p-5 text-sm text-slate-600 bg-white border-t border-slate-100">
-            The system uses computer vision landmarks to dynamically calculate real-time joint angles (such as elbow, shoulder, and knee flexibility) and compares them against therapist-configured targets[cite: 28].
+            The system uses computer vision landmarks to dynamically calculate real-time joint angles (such as elbow, shoulder, and knee flexibility) and compares them against therapist-configured targets.
           </div>
         </div>
 
@@ -724,7 +727,7 @@
             <i data-lucide="chevron-down" class="w-5 h-5 text-rahbar-teal transition-transform"></i>
           </button>
           <div class="faq-content hidden p-5 text-sm text-slate-600 bg-white border-t border-slate-100">
-            No. To protect patient privacy and optimize server storage, RAHBAR stores structured numerical session analytics (joint measurements, repetition counts, and progress scores) instead of raw video recordings[cite: 29].
+            No. To protect patient privacy and optimize server storage, RAHBAR stores structured numerical session analytics (joint measurements, repetition counts, and progress scores) instead of raw video recordings.
           </div>
         </div>
 
@@ -734,7 +737,7 @@
             <i data-lucide="chevron-down" class="w-5 h-5 text-rahbar-teal transition-transform"></i>
           </button>
           <div class="faq-content hidden p-5 text-sm text-slate-600 bg-white border-t border-slate-100">
-            Physiotherapists have access to a dedicated dashboard where they can review past session comparisons, track recovery milestones, and assign customized exercise plans for each patient[cite: 18, 28].
+            Physiotherapists have access to a dedicated dashboard where they can review past session comparisons, track recovery milestones, and assign customized exercise plans for each patient[cite: 18].
           </div>
         </div>
       </div>
@@ -822,7 +825,7 @@
         <span class="text-base font-bold text-white tracking-tight">RAHBAR</span>
       </div>
       <p class="text-slate-500 max-w-md mx-auto">
-        Rehabilitation and Augmented Healthcare for Balance, Activity and Recovery — Senior Design Project at Riphah International University[cite: 25].
+        Rehabilitation and Augmented Healthcare for Balance, Activity and Recovery — Senior Design Project at Riphah International University.
       </p>
       <p class="text-slate-600">
         &copy; 2026 RAHBAR Team. All rights reserved.
