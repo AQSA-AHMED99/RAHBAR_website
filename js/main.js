@@ -1,101 +1,119 @@
-// RAHBAR Website JavaScript
+/* RAHBAR – lightweight site script (no dependencies) */
+(function () {
+  'use strict';
+  document.documentElement.classList.add('js');
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Lucide Icons
-  if (window.lucide) {
-    lucide.createIcons();
-  }
+  var header = document.querySelector('.site-header');
+  var btn = document.getElementById('menu-btn');
+  var links = document.getElementById('nav-links');
 
-  // 1. Mobile Menu Toggle
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+  /* Mobile menu */
+  if (btn && links) {
+    btn.addEventListener('click', function () {
+      var open = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-  }
-
-  // 2. Active Tab Highlighting on Scroll (Scrollspy)
-  const sections = document.querySelectorAll('section[id]');
-  const navItems = document.querySelectorAll('.nav-item');
-
-  window.addEventListener('scroll', () => {
-    let currentSection = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      const sectionHeight = section.offsetHeight;
-      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-        currentSection = section.getAttribute('id');
+    links.addEventListener('click', function (e) {
+      if (e.target.closest('a')) {
+        links.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
       }
     });
-
-    navItems.forEach(item => {
-      item.classList.remove('active');
-      if (item.getAttribute('href') === `#${currentSection}`) {
-        item.classList.add('active');
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        links.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
       }
     });
-  });
+  }
 
-  // 3. FAQ Accordion Toggle
-  const faqToggles = document.querySelectorAll('.faq-toggle');
-  faqToggles.forEach(button => {
-    button.addEventListener('click', () => {
-      const faqItem = button.parentElement;
-      const faqContent = faqItem.querySelector('.faq-content');
+  /* Header shadow on scroll */
+  function onScroll() {
+    if (header) header.classList.toggle('scrolled', window.scrollY > 10);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 
-      // Close other open accordions for a cleaner accordion behavior
-      document.querySelectorAll('.faq-item').forEach(item => {
-        if (item !== faqItem) {
-          item.classList.remove('active');
-          const content = item.querySelector('.faq-content');
-          if (content) content.classList.add('hidden');
-        }
+  /* Reveal on scroll */
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
       });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }
 
-      faqItem.classList.toggle('active');
-      faqContent.classList.toggle('hidden');
-    });
-  });
+  /* Count-up numbers */
+  var counters = document.querySelectorAll('[data-count]');
+  if (counters.length && 'IntersectionObserver' in window) {
+    var co = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target, end = parseInt(el.getAttribute('data-count'), 10), t0 = null;
+        function tick(t) {
+          if (!t0) t0 = t;
+          var p = Math.min((t - t0) / 1100, 1);
+          el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        co.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { co.observe(el); });
+  }
 
-  // 4. Contact & Email Notification Handler for filintamalik9057@gmail.com
-  const contactForm = document.getElementById('contact-form');
-  const formSuccess = document.getElementById('form-success');
+  /* Footer year */
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
 
-  if (contactForm && formSuccess) {
-    contactForm.addEventListener('submit', (e) => {
+  /* Contact / demo form */
+  var form = document.getElementById('contact-form');
+  if (form) {
+    var msg = document.getElementById('form-msg');
+    var submit = form.querySelector('button[type="submit"]');
+    var FALLBACK_EMAIL = form.getAttribute('data-fallback-email') || '';
+
+    function show(type, text) {
+      msg.className = 'form-msg ' + type;
+      msg.textContent = text;
+    }
+
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (form.querySelector('.hp input').value) return; /* honeypot */
+      var data = new FormData(form);
+      var action = form.getAttribute('action') || '';
 
-      const name = document.getElementById('form-name') ? document.getElementById('form-name').value : 'Inquirer';
-      const email = document.getElementById('form-email') ? document.getElementById('form-email').value : '';
-      const phone = document.getElementById('form-phone') ? document.getElementById('form-phone').value : 'N/A';
-      const org = document.getElementById('form-org') ? document.getElementById('form-org').value : 'N/A';
-      const msg = document.getElementById('form-msg') ? document.getElementById('form-msg').value : '';
+      /* Until a Formspree ID is added, fall back to the visitor's mail app */
+      if (!action || action.indexOf('YOUR_FORM_ID') !== -1) {
+        var body = 'Full Name: ' + data.get('name') + '\nEmail: ' + data.get('email') +
+          '\nPhone: ' + (data.get('phone') || 'N/A') + '\nOrganization: ' + (data.get('organization') || 'N/A') +
+          '\n\nMessage:\n' + data.get('message');
+        window.location.href = 'mailto:' + FALLBACK_EMAIL + '?subject=' +
+          encodeURIComponent('RAHBAR Demo Inquiry from ' + data.get('name')) + '&body=' + encodeURIComponent(body);
+        show('ok', 'Your email app should open with the request ready to send. Thank you!');
+        return;
+      }
 
-      const mailtoSubject = encodeURIComponent(`RAHBAR Demo Inquiry from ${name}`);
-      const mailtoBody = encodeURIComponent(
-        `Full Name: ${name}\n` +
-        `Email: ${email}\n` +
-        `Phone: ${phone}\n` +
-        `Organization: ${org}\n\n` +
-        `Message:\n${msg}`
-      );
-
-      // Open email client with prefilled details directly to filintamalik9057@gmail.com
-      window.location.href = `mailto:filintamalik9057@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
-
-      // Display success message
-      formSuccess.classList.remove('hidden');
-      contactForm.reset();
+      submit.disabled = true;
+      var label = submit.querySelector('span');
+      var old = label.textContent;
+      label.textContent = 'Sending…';
+      fetch(action, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+        .then(function (r) {
+          if (!r.ok) throw new Error('bad');
+          form.reset();
+          show('ok', 'Thank you! Your request was sent. The RAHBAR team will get back to you shortly.');
+        })
+        .catch(function () {
+          show('err', 'Sorry, something went wrong. Please email us at ' + FALLBACK_EMAIL + '.');
+        })
+        .finally(function () { submit.disabled = false; label.textContent = old; });
     });
   }
-});
-
-// Scroll to top function
-function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-}
+})();
